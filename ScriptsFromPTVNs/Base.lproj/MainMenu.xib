@@ -16,6 +16,8 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ScriptsFromPTVNs" customModuleProvider="target">
             <connections>
                 <outlet property="afterDate" destination="MNJ-DG-bRS" id="sLe-AT-iCH"/>
+                <outlet property="betweenEndDate" destination="SiD-Op-cQz" id="3hw-hK-tZp"/>
+                <outlet property="betweenStartDate" destination="kQe-LO-ltu" id="siB-nn-bor"/>
                 <outlet property="currentDate" destination="6tH-Op-ZUs" id="Bl2-1u-QUz"/>
                 <outlet property="onDate" destination="otz-yB-sRc" id="Sgl-5a-bFD"/>
                 <outlet property="resultsView" destination="OaP-dR-L9C" id="Rci-XU-uoA"/>
@@ -678,30 +680,16 @@
         <window title="To Do Items From PTVN" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="227" height="254"/>
+            <rect key="contentRect" x="335" y="390" width="226" height="329"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="227" height="254"/>
+                <rect key="frame" x="0.0" y="0.0" width="226" height="329"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNJ-DG-bRS">
-                        <rect key="frame" x="86" y="95" width="97" height="27"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="Pi8-fk-7fl">
-                            <font key="font" metaFont="system"/>
-                            <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
-                                <!--1982-02-12 08:00:00 -0800-->
-                                <timeZone key="timeZone" name="US/Pacific"/>
-                            </calendarDate>
-                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        </datePickerCell>
-                    </datePicker>
-                    <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autosizesCells="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hx2-b4-WyQ">
-                        <rect key="frame" x="20" y="79" width="70" height="165"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hx2-b4-WyQ">
+                        <rect key="frame" x="20" y="89" width="90" height="220"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        <size key="cellSize" width="70" height="55"/>
+                        <size key="cellSize" width="90" height="55"/>
                         <buttonCell key="prototype" type="radio" title="Radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="ytX-Cs-Vbe">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -720,12 +708,26 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system" size="16"/>
                                 </buttonCell>
+                                <buttonCell type="radio" title="Between" bezelStyle="regularSquare" imagePosition="left" alignment="left" tag="3" inset="2" id="yny-A9-Qqu">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system" size="16"/>
+                                </buttonCell>
                             </column>
                         </cells>
                     </matrix>
-                    <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="otz-yB-sRc">
-                        <rect key="frame" x="73" y="150" width="97" height="27"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6tH-Op-ZUs">
+                        <rect key="frame" x="94" y="274" width="79" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="BWa-Wc-nvd"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Date" id="R42-fK-KwT">
+                            <font key="font" metaFont="system" size="15"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="otz-yB-sRc">
+                        <rect key="frame" x="75" y="216" width="97" height="27"/>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="ciw-gI-rSP">
                             <font key="font" metaFont="system"/>
                             <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
@@ -736,18 +738,8 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         </datePickerCell>
                     </datePicker>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6tH-Op-ZUs">
-                        <rect key="frame" x="92" y="210" width="79" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Date" id="R42-fK-KwT">
-                            <font key="font" metaFont="system" size="15"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSp-Qq-b8O">
-                        <rect key="frame" x="69" y="13" width="89" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tSp-Qq-b8O">
+                        <rect key="frame" x="78" y="13" width="89" height="32"/>
                         <buttonCell key="cell" type="push" title="Process" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hmG-RU-zMk">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -756,9 +748,72 @@
                             <action selector="takeFind:" target="Voe-Tx-rLC" id="2uC-eo-bgG"/>
                         </connections>
                     </button>
+                    <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MNJ-DG-bRS">
+                        <rect key="frame" x="86" y="162" width="97" height="27"/>
+                        <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="Pi8-fk-7fl">
+                            <font key="font" metaFont="system"/>
+                            <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
+                                <!--1982-02-12 08:00:00 -0800-->
+                                <timeZone key="timeZone" name="US/Pacific"/>
+                            </calendarDate>
+                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        </datePickerCell>
+                    </datePicker>
+                    <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kQe-LO-ltu">
+                        <rect key="frame" x="112" y="107" width="97" height="27"/>
+                        <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="gGt-jv-FM9">
+                            <font key="font" metaFont="system"/>
+                            <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
+                                <!--1982-02-12 08:00:00 -0800-->
+                                <timeZone key="timeZone" name="US/Pacific"/>
+                            </calendarDate>
+                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        </datePickerCell>
+                    </datePicker>
+                    <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SiD-Op-cQz">
+                        <rect key="frame" x="112" y="76" width="97" height="27"/>
+                        <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="FQb-Tk-IHz">
+                            <font key="font" metaFont="system"/>
+                            <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
+                                <!--1982-02-12 08:00:00 -0800-->
+                                <timeZone key="timeZone" name="US/Pacific"/>
+                            </calendarDate>
+                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        </datePickerCell>
+                    </datePicker>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AbP-EB-2Mu">
+                        <rect key="frame" x="76" y="76" width="30" height="19"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="and" id="wau-Ii-kts">
+                            <font key="font" metaFont="system" size="15"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="otz-yB-sRc" firstAttribute="centerX" secondItem="tSp-Qq-b8O" secondAttribute="centerX" id="2AF-Rn-XVK"/>
+                    <constraint firstItem="SiD-Op-cQz" firstAttribute="leading" secondItem="AbP-EB-2Mu" secondAttribute="trailing" constant="8" symbolic="YES" id="7Qi-dU-Xs7"/>
+                    <constraint firstItem="MNJ-DG-bRS" firstAttribute="top" secondItem="otz-yB-sRc" secondAttribute="bottom" constant="31" id="IYu-fK-dLm"/>
+                    <constraint firstItem="SiD-Op-cQz" firstAttribute="top" secondItem="kQe-LO-ltu" secondAttribute="bottom" constant="8" symbolic="YES" id="Ik6-Rn-rWp"/>
+                    <constraint firstItem="kQe-LO-ltu" firstAttribute="top" secondItem="MNJ-DG-bRS" secondAttribute="bottom" constant="32" id="JZC-mY-Yuc"/>
+                    <constraint firstItem="hx2-b4-WyQ" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="KQ6-iL-tMP"/>
+                    <constraint firstItem="kQe-LO-ltu" firstAttribute="leading" secondItem="SiD-Op-cQz" secondAttribute="leading" id="Phn-KP-z2F"/>
+                    <constraint firstAttribute="trailing" secondItem="kQe-LO-ltu" secondAttribute="trailing" constant="20" symbolic="YES" id="Qte-Px-S6V"/>
+                    <constraint firstItem="MNJ-DG-bRS" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="86" id="XtE-r6-jXn"/>
+                    <constraint firstItem="tSp-Qq-b8O" firstAttribute="top" secondItem="hx2-b4-WyQ" secondAttribute="bottom" constant="48" id="cbA-8x-sZ2"/>
+                    <constraint firstItem="6tH-Op-ZUs" firstAttribute="centerX" secondItem="MNJ-DG-bRS" secondAttribute="centerX" id="d0i-45-Nzx"/>
+                    <constraint firstItem="6tH-Op-ZUs" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="96" id="f4s-vp-NHf"/>
+                    <constraint firstItem="otz-yB-sRc" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="75" id="gwv-yI-kcF"/>
+                    <constraint firstItem="AbP-EB-2Mu" firstAttribute="bottom" secondItem="SiD-Op-cQz" secondAttribute="bottom" id="ozT-86-8Qx"/>
+                    <constraint firstItem="tSp-Qq-b8O" firstAttribute="top" secondItem="AbP-EB-2Mu" secondAttribute="bottom" constant="35" id="pXm-t1-xyC"/>
+                    <constraint firstItem="hx2-b4-WyQ" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="r2b-rp-ylv"/>
+                    <constraint firstItem="otz-yB-sRc" firstAttribute="top" secondItem="6tH-Op-ZUs" secondAttribute="bottom" constant="35" id="sqZ-TA-F9o"/>
+                </constraints>
             </view>
-            <point key="canvasLocation" x="-284.5" y="376"/>
+            <point key="canvasLocation" x="-285" y="413.5"/>
         </window>
         <window title="Needed Scripts" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="sAD-d2-NNm">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>

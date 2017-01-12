@@ -90,8 +90,7 @@ func getFilesAfterDate(_ theDate: String, from files:[URL]) -> [URL] {
 	
 	//convert the date string into an integer
 	guard let checkDateAsInteger = Int(theDate) else { return results }
-	print("Checking against date \(checkDateAsInteger)")
-	
+
 	//get the date element from each URL, convert it to an integer
 	//and check it against the requested date
 	for file in files {
@@ -102,6 +101,28 @@ func getFilesAfterDate(_ theDate: String, from files:[URL]) -> [URL] {
 			print("Check date \(dateBit)")
 			if dateBit >= checkDateAsInteger {
 			results.append(file)
+			}
+		}
+	}
+	
+	return results
+}
+
+func getFilesBetweenDates(_ start:String, and end:String, from files:[URL]) -> [URL] {
+	var results = [URL]()
+	
+	//Convert the date strings to integers
+	guard let startDateAsInteger = Int(start) else { return results }
+	guard let endDateAsInteger = Int(end) else { return results }
+	
+	for file in files {
+		let fileWithoutPercentEncoding = file.deletingPathExtension().absoluteString.removingPercentEncoding
+		guard let nameComponents = fileWithoutPercentEncoding?.components(separatedBy: " ") else { continue }
+		//print(nameComponents)
+		if let dateBit = Int(nameComponents.last!) {
+			print("Check date \(dateBit)")
+			if dateBit >= startDateAsInteger && dateBit <= endDateAsInteger {
+				results.append(file)
 			}
 		}
 	}
@@ -134,7 +155,7 @@ func addCharactersToFront(_ theText:String, theCharacters:String) ->String {
 	var newTextArray = [String]()
 	let textArray = theText.components(separatedBy: "\n")
 	let cleanedTextArray = textArray.filter({!$0.trimmingCharacters(in: NSCharacterSet.whitespaces).isEmpty })
-	for line in textArray {
+	for line in cleanedTextArray {
 		let newLine = theCharacters + line
 		newTextArray.append(newLine)
 	}
