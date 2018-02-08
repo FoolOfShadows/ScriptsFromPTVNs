@@ -97,6 +97,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			theResults = processTheFiles(theFileURLs)
 		case 1:
 			let formattedDate = formatter.string(from: onDate.dateValue)
+			print(formattedDate)
 			theResults = processTheFiles(getDateStringsMatching(formattedDate, from: theFileURLs))
 		case 2:
 			let formattedDate = formatter.string(from: afterDate.dateValue)

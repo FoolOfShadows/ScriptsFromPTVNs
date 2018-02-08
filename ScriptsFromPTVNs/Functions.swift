@@ -97,7 +97,11 @@ func getFilesAfterDate(_ theDate: String, from files:[URL]) -> [URL] {
 		let fileWithoutPercentEncoding = file.deletingPathExtension().absoluteString.removingPercentEncoding
 		guard let nameComponents = fileWithoutPercentEncoding?.components(separatedBy: " ") else { continue }
 		//print(nameComponents)
-		if let dateBit = Int(nameComponents.last!) {
+		guard var lastComponent = nameComponents.last else { continue }
+		if lastComponent.characters.count > 6 {
+			lastComponent.remove(at: lastComponent.index(before: lastComponent.endIndex))
+		}
+		if let dateBit = Int(lastComponent) {
 			print("Check date \(dateBit)")
 			if dateBit >= checkDateAsInteger {
 			results.append(file)
@@ -112,15 +116,30 @@ func getFilesBetweenDates(_ start:String, and end:String, from files:[URL]) -> [
 	var results = [URL]()
 	
 	//Convert the date strings to integers
+	//Need to handle error that might spring up here
 	guard let startDateAsInteger = Int(start) else { return results }
 	guard let endDateAsInteger = Int(end) else { return results }
 	
 	for file in files {
+		//Get just the name of the file as a string
 		let fileWithoutPercentEncoding = file.deletingPathExtension().absoluteString.removingPercentEncoding
+		//Break the full name apart into its components
 		guard let nameComponents = fileWithoutPercentEncoding?.components(separatedBy: " ") else { continue }
 		//print(nameComponents)
-		if let dateBit = Int(nameComponents.last!) {
-			print("Check date \(dateBit)")
+		//Get the last component of the full name which should be the date bit
+		guard var lastComponent = nameComponents.last else { continue }
+		//Check if the date bit has been extended with a single note character (f, b, c, etc)
+		if lastComponent.count == 7 {
+			lastComponent.remove(at: lastComponent.index(before: lastComponent.endIndex))
+		} else if lastComponent.count > 7 {
+			//If more than one character has been added, or the last component isn't a date bit
+			//handle that as an error
+			print("Date bit is too long")
+			//Need to handle this possible error here
+		}
+		//Convert the dateBit into an Int so it can be checked as being in the desired range
+		if let dateBit = Int(lastComponent) {
+			//print("Check date \(dateBit)")
 			if dateBit >= startDateAsInteger && dateBit <= endDateAsInteger {
 				results.append(file)
 			}
@@ -136,8 +155,8 @@ func cleanTheSections(_ theSection:String, badBits:[String]) -> String {
 	for theBit in badBits {
 		cleanedText = cleanedText.replacingOccurrences(of: theBit, with: "")
 	}
-	cleanedText = cleanedText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-	return cleanedText
+	//cleanedText = cleanedText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+	return cleanedText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 }
 
 

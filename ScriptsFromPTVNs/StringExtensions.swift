@@ -12,8 +12,8 @@ extension String {
 	func findRegexMatchFrom(_ start: String, to end:String) -> String? {
 		guard let startRegex = try? NSRegularExpression(pattern: start, options: []) else { return nil }
 		guard let endRegex = try? NSRegularExpression(pattern: end, options: []) else {return nil }
-		let startMatch = startRegex.matches(in: self, options: [], range: NSRange(location: 0, length: self.characters.count))
-		let endMatch = endRegex.matches(in: self, options: [], range: NSRange(location: 0, length: self.characters.count))
+		let startMatch = startRegex.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
+		let endMatch = endRegex.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
 		
 		let startRange = startMatch[0].range
 		let endRange = endMatch[0].range
@@ -26,16 +26,32 @@ extension String {
 	
 	func findRegexMatchBetween(_ start: String, and end: String) -> String? {
 		guard let startRegex = try? NSRegularExpression(pattern: start, options: []) else { return nil }
+		Swift.print(startRegex)
 		guard let endRegex = try? NSRegularExpression(pattern: end, options: []) else {return nil }
-		let startMatch = startRegex.matches(in: self, options: [], range: NSRange(location: 0, length: self.characters.count))
-		let endMatch = endRegex.matches(in: self, options: [], range: NSRange(location: 0, length: self.characters.count))
+		Swift.print(endRegex)
 		
-		let startRange = startMatch[0].range
-		let endRange = endMatch[0].range
+		let startMatch = startRegex.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
+		Swift.print(startMatch)
+		let endMatch = endRegex.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
+		Swift.print(endMatch)
 		
-		let r = self.index(self.startIndex, offsetBy: startRange.location + startRange.length) ..< self.index(self.startIndex, offsetBy: endRange.location)
-		
-		return self.substring(with: r)
+		if !startMatch.isEmpty && !endMatch.isEmpty {
+			
+			let startRange = startMatch[0].range
+			Swift.print(startRange)
+			let endRange = endMatch[0].range
+			Swift.print(endRange)
+			
+			if startRange.location > endRange.location {
+				return "There is a formatting error in this patients PTVN."
+			} else {
+				let r = self.index(self.startIndex, offsetBy: startRange.location + startRange.length) ..< self.index(self.startIndex, offsetBy: endRange.location)
+				
+				return self.substring(with: r)
+			}
+		} else {
+			return "There was no match for either '\(start)' or '\(end)' in the text."
+		}
 		
 	}
 	
