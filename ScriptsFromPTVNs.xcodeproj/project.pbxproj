@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		793506AE202CC1BA0068BDB3 /* criteriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793506AD202CC1BA0068BDB3 /* criteriaViewController.swift */; };
 		793506B0202CC1D80068BDB3 /* resultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793506AF202CC1D80068BDB3 /* resultsViewController.swift */; };
+		793506B2202CC8720068BDB3 /* DataProcessingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793506B1202CC8720068BDB3 /* DataProcessingModel.swift */; };
 		7967C94E1E27D6DC00C8418A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7967C94D1E27D6DC00C8418A /* StringExtensions.swift */; };
 		79E0A6E51C6E23920053E303 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E0A6E41C6E23920053E303 /* AppDelegate.swift */; };
 		79E0A6E71C6E23920053E303 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79E0A6E61C6E23920053E303 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		793506AD202CC1BA0068BDB3 /* criteriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = criteriaViewController.swift; sourceTree = "<group>"; };
 		793506AF202CC1D80068BDB3 /* resultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resultsViewController.swift; sourceTree = "<group>"; };
+		793506B1202CC8720068BDB3 /* DataProcessingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcessingModel.swift; sourceTree = "<group>"; };
 		7967C94D1E27D6DC00C8418A /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		79E0A6E11C6E23920053E303 /* ScriptsFromPTVNs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScriptsFromPTVNs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E0A6E41C6E23920053E303 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				79E0A6EB1C6E23920053E303 /* Info.plist */,
 				793506AD202CC1BA0068BDB3 /* criteriaViewController.swift */,
 				793506AF202CC1D80068BDB3 /* resultsViewController.swift */,
+				793506B1202CC8720068BDB3 /* DataProcessingModel.swift */,
 			);
 			path = ScriptsFromPTVNs;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				7967C94E1E27D6DC00C8418A /* StringExtensions.swift in Sources */,
 				793506AE202CC1BA0068BDB3 /* criteriaViewController.swift in Sources */,
 				79E0A6E51C6E23920053E303 /* AppDelegate.swift in Sources */,
+				793506B2202CC8720068BDB3 /* DataProcessingModel.swift in Sources */,
 				79E0A6F21C6E33460053E303 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
