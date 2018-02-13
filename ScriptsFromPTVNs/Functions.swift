@@ -98,7 +98,7 @@ func getFilesAfterDate(_ theDate: String, from files:[URL]) -> [URL] {
 		guard let nameComponents = fileWithoutPercentEncoding?.components(separatedBy: " ") else { continue }
 		//print(nameComponents)
 		guard var lastComponent = nameComponents.last else { continue }
-		if lastComponent.characters.count > 6 {
+		if lastComponent.count > 6 {
 			lastComponent.remove(at: lastComponent.index(before: lastComponent.endIndex))
 		}
 		if let dateBit = Int(lastComponent) {

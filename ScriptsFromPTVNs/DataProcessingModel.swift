@@ -8,73 +8,79 @@
 
 import Cocoa
 
-struct dataProcessing {
+enum TimeMatched:String {
+	case on
+	case before
+	case after
+	case between
+}
+
+func getFileNamesFrom(_ files: [URL], forDate date:(start:Date, end:Date?), status:TimeMatched) -> [String] {
+	//Convert URL array to String array using compactMap (which replaces flatMap) to filter out nil values
+	let filesAsStrings = files.compactMap {$0.urlIntoCleanString()}
+	let formatter = DateFormatter()
+	formatter.dateFormat = "yyMMdd"
+	var results = [String]()
 	
-	
-	
-	
-	/*Addend the path to the WPCMSharedFiles folder for the office machines to create a default selection.
-	This requires all the computers this code runs on to have a folder named WPCMSharedFiles
-	in their home directory.*/
-	var originFolderURL: URL
-	
-	
-	mutating func getURLsFromDirectory(_ tag: Int) -> [URL] {
-		//Array to hold the matching superset of URLs
-		var theFileURLs = [URL]()
-		//Create an NSFileManager to use with the file enumeration we'll be doing later
-		let fileManager = FileManager.default
-		let basePath = NSHomeDirectory()
-		
-		switch tag {
-		case 0:
-			originFolderURL = URL(fileURLWithPath: "\(basePath)/WPCMSharedFiles/zDoctor Review/06 Dummy Files")
-		default:
-			originFolderURL = URL(fileURLWithPath: "\(basePath)/WPCMSharedFiles/zDonna Review/01 PTVN Files")
-		//What if the user selects Between and enters the current date as the start date?
-		}
-		
-		let enumeratorOptions: FileManager.DirectoryEnumerationOptions = [.skipsHiddenFiles, .skipsPackageDescendants]
-		let theEnumerator = fileManager.enumerator(at: originFolderURL, includingPropertiesForKeys: nil, options: enumeratorOptions, errorHandler: nil)
-		
-		for item in theEnumerator!.allObjects {
-			if let itemURL = item as? URL {
-				if itemURL.absoluteString.contains("PTVN") {
-					theFileURLs.append(itemURL)
-				}
+	switch status {
+	case .on: results = filesAsStrings.filter{$0.contains(formatter.string(from: date.start))}
+	case .before: results = [""]
+	case .after:
+		for item in files {
+			guard let itemDate = item.splitFileNameIntoComponents()?.last,
+				  let dateInt = Int(itemDate),
+				  let startInt = Int(formatter.string(from: date.start)) else { continue }
+			if dateInt >= startInt {
+				results.append(item.absoluteString)
 			}
 		}
-		
-		return theFileURLs
+	case .between:
+		for item in files {
+			guard let itemDate = item.splitFileNameIntoComponents()?.last,
+				let dateInt = Int(itemDate),
+				let startInt = Int(formatter.string(from: date.start)),
+				let endInt = Int(formatter.string(from: date.end!)) else { continue }
+			if dateInt >= startInt && dateInt <= endInt {
+				results.append(item.urlIntoCleanString()!)
+			}
+		}
 	}
 	
-	mutating func takeFind() {
-		var theResults = String()
-		let formatter = DateFormatter()
-		formatter.dateFormat = "yyMMdd"
-		let theFileURLs = getURLsFromDirectory()
-		switch selectorTag {
-		case 0:
-			theResults = processTheFiles(theFileURLs)
-		case 1:
-			let formattedDate = formatter.string(from: onDate.dateValue)
-			print(formattedDate)
-			theResults = processTheFiles(getDateStringsMatching(formattedDate, from: theFileURLs))
-		case 2:
-			let formattedDate = formatter.string(from: afterDate.dateValue)
-			theResults = processTheFiles(getFilesAfterDate(formattedDate, from: theFileURLs))
-		case 3:
-			let formattedStartDate = formatter.string(from: betweenStartDate.dateValue)
-			let formattedEndDate = formatter.string(from: betweenEndDate.dateValue)
-			theResults = processTheFiles(getFilesBetweenDates(formattedStartDate, and: formattedEndDate, from: theFileURLs))
-		default:
-			return
-		}
-		
-		let theUserFont:NSFont = NSFont.systemFont(ofSize: 18)
-		let fontAttributes = NSDictionary(object: theUserFont, forKey: NSFontAttributeName as NSCopying)
-		resultsView.typingAttributes = fontAttributes as! [String : AnyObject]
-		resultsView.string = "NEEDED SCRIPTS\n\(theResults)"
-		resultsWindow.makeKeyAndOrderFront(self)
-	}
+	return results
+}
+
+
+
+struct dataProcessing {
+
+	
+//	mutating func takeFind() {
+//		var theResults = String()
+//		let formatter = DateFormatter()
+//		formatter.dateFormat = "yyMMdd"
+//		let theFileURLs = getURLsFromDirectory()
+//		switch selectorTag {
+//		case 0:
+//			theResults = processTheFiles(theFileURLs)
+//		case 1:
+//			let formattedDate = formatter.string(from: onDate.dateValue)
+//			print(formattedDate)
+//			theResults = processTheFiles(getDateStringsMatching(formattedDate, from: theFileURLs))
+//		case 2:
+//			let formattedDate = formatter.string(from: afterDate.dateValue)
+//			theResults = processTheFiles(getFilesAfterDate(formattedDate, from: theFileURLs))
+//		case 3:
+//			let formattedStartDate = formatter.string(from: betweenStartDate.dateValue)
+//			let formattedEndDate = formatter.string(from: betweenEndDate.dateValue)
+//			theResults = processTheFiles(getFilesBetweenDates(formattedStartDate, and: formattedEndDate, from: theFileURLs))
+//		default:
+//			return
+//		}
+//
+//		let theUserFont:NSFont = NSFont.systemFont(ofSize: 18)
+//		let fontAttributes = NSDictionary(object: theUserFont, forKey: NSFontAttributeName as NSCopying)
+//		resultsView.typingAttributes = fontAttributes as! [String : AnyObject]
+//		resultsView.string = "NEEDED SCRIPTS\n\(theResults)"
+//		resultsWindow.makeKeyAndOrderFront(self)
+//	}
 }

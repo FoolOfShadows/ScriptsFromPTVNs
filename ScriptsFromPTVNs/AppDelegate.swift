@@ -61,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			print("Current button selected is \(selectorTag)")
 		}
 		print("Current button selected is \(selectorTag)")
-		var theFileNames = [URL]()
+
 		/*Addend the path to the WPCMSharedFiles folder for the office machines to create a default selection.
 		This requires all the computers this code runs on to have a folder named WPCMSharedFiles
 		in their home directory.*/
@@ -72,19 +72,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		default:
 			originFolderURL = URL(fileURLWithPath: "\(basePath)/WPCMSharedFiles/zDonna Review/01 PTVN Files")
 		}
-	
+		
 		print("\(originFolderURL)")
-		let enumeratorOptions: FileManager.DirectoryEnumerationOptions = [.skipsHiddenFiles, .skipsPackageDescendants]
-		let theEnumerator = fileManager.enumerator(at: originFolderURL, includingPropertiesForKeys: nil, options: enumeratorOptions, errorHandler: nil)
-		for item in theEnumerator!.allObjects {
-			if let itemURL = item as? URL {
-				if itemURL.absoluteString.contains("PTVN") {
-					theFileNames.append(itemURL)
-				}
-			}
-		}
-		//print(theFileNames)
-		return theFileNames
+		return originFolderURL.getFilesInDirectoryWhereNameContains(["PTVN"])
+		//return getFilesFromDirectory(originFolderURL, whereNameIncludes: ["PTVN"])
 	}
 	
 	@IBAction func takeFind(_ sender: AnyObject) {
