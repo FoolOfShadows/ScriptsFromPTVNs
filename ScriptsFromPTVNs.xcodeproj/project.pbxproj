@@ -61,14 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				79E0A6E41C6E23920053E303 /* AppDelegate.swift */,
-				79E0A6F11C6E33460053E303 /* Functions.swift */,
+				793506AD202CC1BA0068BDB3 /* criteriaViewController.swift */,
 				7967C94D1E27D6DC00C8418A /* StringExtensions.swift */,
 				79E0A6E61C6E23920053E303 /* Assets.xcassets */,
 				79E0A6E81C6E23920053E303 /* MainMenu.xib */,
 				79E0A6EB1C6E23920053E303 /* Info.plist */,
-				793506AD202CC1BA0068BDB3 /* criteriaViewController.swift */,
 				793506AF202CC1D80068BDB3 /* resultsViewController.swift */,
 				793506B1202CC8720068BDB3 /* DataProcessingModel.swift */,
+				79E0A6F11C6E33460053E303 /* Functions.swift */,
 			);
 			path = ScriptsFromPTVNs;
 			sourceTree = "<group>";

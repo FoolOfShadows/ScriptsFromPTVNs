@@ -99,7 +99,7 @@ extension URL {
 				}
 			}
 		}
-		print("Directory Files:\n\n\n\(results.count)\n\n\n")
+		//print("Directory Files:\n\n\n\(results.count)\n\n\n")
 		return results
 	}
 }

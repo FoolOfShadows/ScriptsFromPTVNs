@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1212" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14087.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11761"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14087.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -715,8 +715,8 @@
                             </column>
                         </cells>
                     </matrix>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6tH-Op-ZUs">
-                        <rect key="frame" x="94" y="274" width="79" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6tH-Op-ZUs">
+                        <rect key="frame" x="94" y="274" width="78" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="BWa-Wc-nvd"/>
                         </constraints>
@@ -727,19 +727,18 @@
                         </textFieldCell>
                     </textField>
                     <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="otz-yB-sRc">
-                        <rect key="frame" x="75" y="216" width="97" height="27"/>
+                        <rect key="frame" x="75" y="216" width="96" height="27"/>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="ciw-gI-rSP">
                             <font key="font" metaFont="system"/>
-                            <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
-                                <!--1982-02-12 08:00:00 -0800-->
-                                <timeZone key="timeZone" name="US/Pacific"/>
-                            </calendarDate>
+                            <date key="date" timeIntervalSinceReferenceDate="-595929600">
+                                <!--1982-02-12 16:00:00 +0000-->
+                            </date>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         </datePickerCell>
                     </datePicker>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tSp-Qq-b8O">
-                        <rect key="frame" x="78" y="13" width="89" height="32"/>
+                        <rect key="frame" x="77" y="13" width="89" height="32"/>
                         <buttonCell key="cell" type="push" title="Process" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hmG-RU-zMk">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -749,43 +748,40 @@
                         </connections>
                     </button>
                     <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MNJ-DG-bRS">
-                        <rect key="frame" x="86" y="162" width="97" height="27"/>
+                        <rect key="frame" x="86" y="162" width="96" height="27"/>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="Pi8-fk-7fl">
                             <font key="font" metaFont="system"/>
-                            <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
-                                <!--1982-02-12 08:00:00 -0800-->
-                                <timeZone key="timeZone" name="US/Pacific"/>
-                            </calendarDate>
+                            <date key="date" timeIntervalSinceReferenceDate="-595929600">
+                                <!--1982-02-12 16:00:00 +0000-->
+                            </date>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         </datePickerCell>
                     </datePicker>
                     <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kQe-LO-ltu">
-                        <rect key="frame" x="112" y="107" width="97" height="27"/>
+                        <rect key="frame" x="113" y="107" width="96" height="27"/>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="gGt-jv-FM9">
                             <font key="font" metaFont="system"/>
-                            <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
-                                <!--1982-02-12 08:00:00 -0800-->
-                                <timeZone key="timeZone" name="US/Pacific"/>
-                            </calendarDate>
+                            <date key="date" timeIntervalSinceReferenceDate="-595929600">
+                                <!--1982-02-12 16:00:00 +0000-->
+                            </date>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         </datePickerCell>
                     </datePicker>
                     <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SiD-Op-cQz">
-                        <rect key="frame" x="112" y="76" width="97" height="27"/>
+                        <rect key="frame" x="113" y="76" width="96" height="27"/>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="FQb-Tk-IHz">
                             <font key="font" metaFont="system"/>
-                            <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
-                                <!--1982-02-12 08:00:00 -0800-->
-                                <timeZone key="timeZone" name="US/Pacific"/>
-                            </calendarDate>
+                            <date key="date" timeIntervalSinceReferenceDate="-595929600">
+                                <!--1982-02-12 16:00:00 +0000-->
+                            </date>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         </datePickerCell>
                     </datePicker>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AbP-EB-2Mu">
-                        <rect key="frame" x="76" y="76" width="30" height="19"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AbP-EB-2Mu">
+                        <rect key="frame" x="77" y="76" width="30" height="19"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="and" id="wau-Ii-kts">
                             <font key="font" metaFont="system" size="15"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -813,7 +809,7 @@
                     <constraint firstItem="otz-yB-sRc" firstAttribute="top" secondItem="6tH-Op-ZUs" secondAttribute="bottom" constant="35" id="sqZ-TA-F9o"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="-285" y="413.5"/>
+            <point key="canvasLocation" x="-586" y="453"/>
         </window>
         <window title="Needed Scripts" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="sAD-d2-NNm">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
@@ -830,7 +826,7 @@
                             <rect key="frame" x="1" y="1" width="455" height="594"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView drawsBackground="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="OaP-dR-L9C">
+                                <textView drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="OaP-dR-L9C">
                                     <rect key="frame" x="0.0" y="0.0" width="455" height="594"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
